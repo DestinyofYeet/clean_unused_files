@@ -28,6 +28,8 @@ impl Config {
             Ok(_) => {
 
                 let mut config = Ini::new();
+                config.set_comment_symbols(&[]); // disable comment-symbols '#' and ';' for
+                                                 // password reasons
                 match config.read(file_content) {
                     Err(e) => panic!("Failed to parse config file because {}", e),
                     Ok(_) => {}
