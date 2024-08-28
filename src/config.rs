@@ -33,27 +33,6 @@ impl Config {
                     Ok(_) => {}
                 };
                 
-                let watch_path = config.get("DEFAULT", "watch_path");
-                
-                if watch_path.is_none(){
-                    eprintln!("Could not find key 'watch_path' in section 'DEFAULT'!");
-                    return None;
-                }
-                
-                let metaflac_path = config.get("FLAC", "metaflac_bin");
-                
-                if metaflac_path.is_none(){
-                    eprintln!("Could not find key 'metaflac_bin' in section 'FLAC'!");
-                    return None;
-                }
-                
-                let metaflac_flags = config.get("FLAC", "metaflac_flags");
-                
-                if metaflac_flags.is_none(){
-                    eprintln!("Could not find key 'metaflac_flags' in section 'FLAC'!");
-                    return None;
-                }
-
                 return Some(Config {
                     qb_url: Self::get_config("QBIT", "url", &config),
                     qb_user: Self::get_config("QBIT", "user", &config),
