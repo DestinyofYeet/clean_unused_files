@@ -13,6 +13,10 @@ in {
     packages.x86_64-linux.clean-unused-files = pkgs.callPackage ./pkg.nix {};
 
     nixosModules.clean-unused-files = import ./module.nix self;
+
+    hydraJobs = {
+      inherit (self) packages;
+    };
     
   };
 }
